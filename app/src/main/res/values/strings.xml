@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AdoptAPet</string>
+    <string name="button_addAdoptAPet">Add Pet</string>
+    <string name="hint_adoptTitle">Adopt Title</string>
+    <string name="hint_adoptDescription">Description</string>
+
+    <!-- Menu -->
+    <string name="menu_addPet">Add</string>
+    <string name="menu_cancelPet">Cancel</string>
+
+</resources>
