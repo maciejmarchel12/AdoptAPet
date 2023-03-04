@@ -35,6 +35,8 @@ class AdoptActivity : AppCompatActivity() {
 
         i("AdoptAPet Activity started...") //Logcat message
 
+        //For Editing the Listing
+
         if (intent.hasExtra("pet_edit")) {
             edit = true
             adopt = intent.extras?.getParcelable("pet_edit")!!
@@ -46,14 +48,32 @@ class AdoptActivity : AppCompatActivity() {
             binding.btnAdd.setText(R.string.save_adopt)
         }
 
+        //Button for adding listing
+
         binding.btnAdd.setOnClickListener() {
             adopt.title = binding.adoptTitle.text.toString()
             adopt.description = binding.description.text.toString()
             adopt.email = binding.email.text.toString()
             adopt.petAge = Integer.parseInt(binding.petAge.text.toString())
             adopt.availableDate = binding.availableDate.text.toString()
+
+            //validation attempt
+            //BUG FOUND FOR adopt.petAge, Crashes due to it being an Int, will need to fix for CA2
+
             if (adopt.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_adopt_title, Snackbar.LENGTH_LONG)
+                        .show()
+            } else if (adopt.description.isEmpty()) {
+                Snackbar.make(it,R.string.enter_adopt_description, Snackbar.LENGTH_LONG)
+                        .show()
+            } else if (adopt.email.isEmpty()) {
+                Snackbar.make(it,R.string.enter_adopt_email, Snackbar.LENGTH_LONG)
+                        .show()
+            } else if (adopt.petAge.toString().isEmpty()) {
+                Snackbar.make(it,R.string.enter_adopt_age, Snackbar.LENGTH_LONG)
+                        .show()
+            } else if (adopt.availableDate.isEmpty()) {
+                Snackbar.make(it,R.string.enter_adopt_date, Snackbar.LENGTH_LONG)
                         .show()
             } else {
                 if (edit) {
@@ -66,7 +86,7 @@ class AdoptActivity : AppCompatActivity() {
             finish()
         }
 
-        //Old button event handler
+        //Old button event handler adopt.petAge.toString().isEmpty()
 
         /*binding.btnAdd.setOnClickListener() {
             adopt.title = binding.adoptTitle.text.toString()

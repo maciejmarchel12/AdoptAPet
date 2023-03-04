@@ -14,6 +14,9 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         i("AdoptAPet started")
+
+        //Listing tests
+
         // adoptions.add(AdoptModel("Max", "Border Collie..."))
         // adoptions.add(AdoptModel("Ser Charles", "Important cat..."))
         // adoptions.add(AdoptModel("Missy", "Poodle..."))

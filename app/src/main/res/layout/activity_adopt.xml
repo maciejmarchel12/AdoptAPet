@@ -20,13 +20,15 @@
             android:background="@color/colorAccent"
             android:fitsSystemWindows="true"
             app:elevation="0dip"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            app:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@color/colorPrimary" />
+                android:forceDarkAllowed="true"
+                app:subtitleTextColor="@color/colorPrimary"
+                app:titleTextColor="@color/colorPrimaryDark" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
@@ -52,7 +54,8 @@
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <EditText
                     android:id="@+id/description"
@@ -65,35 +68,42 @@
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:ignore="VisualLintTextFieldSize"
+                    android:autofillHints="Write something short about the pet" />
 
                 <EditText
                     android:id="@+id/email"
-                    android:layout_width="match_parent"
+                    android:layout_width="394dp"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
+                    android:autofillHints="yourhandle@emailprovider.com"
+                    android:ems="10"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:hint="@string/hint_email"
                     android:textSize="14sp"
-                    android:ems="10"
-                    android:inputType="textEmailAddress" />
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <EditText
                     android:id="@+id/petAge"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_width="395dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:hint="@string/hint_petAge"
+                    android:autofillHints="EX. 5"
                     android:ems="10"
+                    android:hint="@string/hint_petAge"
                     android:inputType="number"
                     android:maxLength="25"
                     android:maxLines="1"
+                    android:minHeight="48dp"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:ignore="VisualLintTextFieldSize" />
 
                 <EditText
                     android:id="@+id/availableDate"
@@ -107,7 +117,9 @@
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
-                    android:inputType="date" />
+                    android:inputType="date"
+                    tools:ignore="VisualLintTextFieldSize"
+                    android:autofillHints="DD/MM/YYYY" />
 
                 <Button
                     android:id="@+id/btnAdd"
@@ -120,7 +132,8 @@
                     android:stateListAnimator="@null"
                     android:text="@string/button_addAdoptAPet"
                     android:textColor="#212121"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:ignore="VisualLintButtonSize" />
 
             </LinearLayout>
         </ScrollView>

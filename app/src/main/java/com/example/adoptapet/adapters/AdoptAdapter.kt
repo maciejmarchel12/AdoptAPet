@@ -28,6 +28,8 @@ class AdoptAdapter constructor(private var adoptions: List<AdoptModel>,
 
     override fun getItemCount(): Int = adoptions.size
 
+    //Card displaying user input
+
     class MainHolder(private val binding : CardAdoptBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
