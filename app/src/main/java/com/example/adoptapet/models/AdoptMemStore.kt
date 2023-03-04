@@ -27,6 +27,9 @@ class AdoptMemStore : AdoptStore {
         if (foundAdopt != null) {
             foundAdopt.title = adopt.title
             foundAdopt.description = adopt.description
+            foundAdopt.email = adopt.email
+            foundAdopt.petAge = adopt.petAge
+            foundAdopt.availableDate = adopt.availableDate
             logAll()
         }
     }

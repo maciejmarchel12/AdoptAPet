@@ -34,6 +34,9 @@ class AdoptAdapter constructor(private var adoptions: List<AdoptModel>,
         fun bind(adopt: AdoptModel, listener: AdoptListener) {
             binding.adoptTitle.text = adopt.title
             binding.description.text = adopt.description
+            binding.email.text = adopt.email
+            binding.age.text = adopt.petAge.toString()
+            binding.date.text = adopt.availableDate
             binding.root.setOnClickListener { listener.onAdoptClick(adopt) }
         }
     }

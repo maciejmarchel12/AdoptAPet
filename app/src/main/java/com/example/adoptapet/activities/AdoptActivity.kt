@@ -10,8 +10,10 @@ import com.example.adoptapet.databinding.ActivityAdoptBinding
 import com.example.adoptapet.main.MainApp
 import com.google.android.material.snackbar.Snackbar
 import timber.log.Timber.i
+import java.text.DateFormat
+import java.util.Date
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION") // Had to use this as Parcelable was being deprecated
 class AdoptActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAdoptBinding
@@ -31,19 +33,25 @@ class AdoptActivity : AppCompatActivity() {
 
         app = application as MainApp
 
-        i("AdoptAPet Activity started...")
+        i("AdoptAPet Activity started...") //Logcat message
 
         if (intent.hasExtra("pet_edit")) {
             edit = true
             adopt = intent.extras?.getParcelable("pet_edit")!!
             binding.adoptTitle.setText(adopt.title)
             binding.description.setText(adopt.description)
+            binding.email.setText(adopt.email)
+            binding.petAge.setText(adopt.petAge.toString())
+            binding.availableDate.setText(adopt.availableDate)
             binding.btnAdd.setText(R.string.save_adopt)
         }
 
         binding.btnAdd.setOnClickListener() {
             adopt.title = binding.adoptTitle.text.toString()
             adopt.description = binding.description.text.toString()
+            adopt.email = binding.email.text.toString()
+            adopt.petAge = Integer.parseInt(binding.petAge.text.toString())
+            adopt.availableDate = binding.availableDate.text.toString()
             if (adopt.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_adopt_title, Snackbar.LENGTH_LONG)
                         .show()
