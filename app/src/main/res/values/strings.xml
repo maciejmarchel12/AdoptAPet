@@ -4,6 +4,12 @@
     <string name="hint_adoptTitle">Adopt Title</string>
     <string name="hint_adoptDescription">Description</string>
 
+    <!-- Title -->
+    <string name="enter_adopt_title">Please enter a name/title for the pet listing</string>
+
+    <!-- Save -->
+    <string name="save_adopt">Save Adopt Listing</string>
+
     <!-- Menu -->
     <string name="menu_addPet">Add</string>
     <string name="menu_cancelPet">Cancel</string>
