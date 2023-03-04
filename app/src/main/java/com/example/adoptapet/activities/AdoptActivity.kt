@@ -11,6 +11,7 @@ import com.example.adoptapet.main.MainApp
 import com.google.android.material.snackbar.Snackbar
 import timber.log.Timber.i
 
+@Suppress("DEPRECATION")
 class AdoptActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAdoptBinding
@@ -19,6 +20,8 @@ class AdoptActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        var edit = false
 
         binding = ActivityAdoptBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -31,23 +34,28 @@ class AdoptActivity : AppCompatActivity() {
         i("AdoptAPet Activity started...")
 
         if (intent.hasExtra("pet_edit")) {
+            edit = true
             adopt = intent.extras?.getParcelable("pet_edit")!!
             binding.adoptTitle.setText(adopt.title)
             binding.description.setText(adopt.description)
+            binding.btnAdd.setText(R.string.save_adopt)
         }
 
         binding.btnAdd.setOnClickListener() {
             adopt.title = binding.adoptTitle.text.toString()
             adopt.description = binding.description.text.toString()
-            if (adopt.title.isNotEmpty()) {
-                app.adoptions.create(adopt.copy())
-                setResult(RESULT_OK)
-                finish()
-            }
-            else {
-                Snackbar.make(it,"Please enter title here", Snackbar.LENGTH_LONG)
+            if (adopt.title.isEmpty()) {
+                Snackbar.make(it,R.string.enter_adopt_title, Snackbar.LENGTH_LONG)
                         .show()
+            } else {
+                if (edit) {
+                    app.adoptions.update(adopt.copy())
+                } else {
+                    app.adoptions.create(adopt.copy())
+                }
             }
+            setResult(RESULT_OK)
+            finish()
         }
 
         //Old button event handler
