@@ -6,8 +6,12 @@
     <string name="hint_petAge">Pet Age</string>
     <string name="hint_email">Email</string>
     <string name="hint_date">Date</string>
-    <!-- Title -->
+    <!-- Snackbar -->
     <string name="enter_adopt_title">Please enter a name/title for the pet listing</string>
+    <string name="enter_adopt_description">Please enter a description!</string>
+    <string name="enter_adopt_email">Please enter an email!</string>
+    <string name="enter_adopt_age">Please enter an email!</string>
+    <string name="enter_adopt_date">Please enter an email!</string>
 
     <!-- Save -->
     <string name="save_adopt">Save Adopt Listing</string>

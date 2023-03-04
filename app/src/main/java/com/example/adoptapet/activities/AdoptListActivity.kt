@@ -73,6 +73,8 @@ class AdoptListActivity : AppCompatActivity(), AdoptListener {
         getClickResult.launch(launcherIntent)
     }*/
 
+    //Recycler View
+
     private val getClickResult =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
