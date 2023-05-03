@@ -32,6 +32,7 @@ class AdoptMemStore : AdoptStore {
             foundAdopt.email = adopt.email
             foundAdopt.petAge = adopt.petAge
             foundAdopt.availableDate = adopt.availableDate
+            foundAdopt.image = adopt.image
             logAll()
         }
     }
