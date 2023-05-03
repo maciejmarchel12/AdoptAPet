@@ -1,5 +1,6 @@
 package com.example.adoptapet.models
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.text.DateFormat
@@ -10,7 +11,8 @@ data class AdoptModel(var id: Long = 0,
                       var description: String = "",
                       var petAge: Int = 0,
                       var email: String = "",
-                      var availableDate: String = "") : Parcelable
+                      var availableDate: String = "",
+                      var image: Uri = Uri.EMPTY) : Parcelable
 
 
 
