@@ -9,6 +9,14 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/item_delete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/menu_deletePet"
+        app:showAsAction="always"/>
+    <!-- BUGGED: android:visible="false"  -->
+
+
+    <item
         android:id="@+id/item_cancel"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="@string/menu_cancelPet"
