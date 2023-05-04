@@ -33,6 +33,9 @@ class AdoptMemStore : AdoptStore {
             foundAdopt.petAge = adopt.petAge
             foundAdopt.availableDate = adopt.availableDate
             foundAdopt.image = adopt.image
+            foundAdopt.lat = adopt.lat
+            foundAdopt.lng = adopt.lng
+            foundAdopt.zoom = adopt.zoom
             logAll()
         }
     }

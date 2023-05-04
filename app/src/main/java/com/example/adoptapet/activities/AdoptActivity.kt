@@ -13,6 +13,7 @@ import com.example.adoptapet.models.AdoptModel
 import com.example.adoptapet.databinding.ActivityAdoptBinding
 import com.example.adoptapet.helpers.showImagePicker
 import com.example.adoptapet.main.MainApp
+import com.example.adoptapet.models.Location
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import timber.log.Timber.i
@@ -26,6 +27,8 @@ class AdoptActivity : AppCompatActivity() {
     var adopt = AdoptModel()
     lateinit var app : MainApp
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
+   // var location = Location(52.245696, -7.139102, 15f)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,7 +129,20 @@ class AdoptActivity : AppCompatActivity() {
             showImagePicker(imageIntentLauncher)
         }
 
+        binding.adoptLocation.setOnClickListener {
+            val location = Location(52.245696, -7.139102, 15f)
+            if (adopt.zoom != 0f) {
+                location.lat = adopt.lat
+                location.lng = adopt.lng
+                location.zoom = adopt.zoom
+            }
+            val launcherIntent = Intent(this, MapActivity::class.java)
+                .putExtra("location", location)
+            mapIntentLauncher.launch(launcherIntent)
+        }
+
         registerImagePickerCallback()
+        registerMapCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -163,4 +179,25 @@ class AdoptActivity : AppCompatActivity() {
                 }
             }
     }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when (result.resultCode) {
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            i("Received Location ${result.data.toString()}")
+                            val location = result.data!!.extras?.getParcelable<Location>("location")!!
+                            i("Location == $location")
+                            adopt.lat = location.lat
+                            adopt.lng = location.lng
+                            adopt.zoom = location.zoom
+                        } // end of if statement
+                    }
+                    RESULT_CANCELED -> { } else -> { }
+                }
+            }
+    }
+
 }
