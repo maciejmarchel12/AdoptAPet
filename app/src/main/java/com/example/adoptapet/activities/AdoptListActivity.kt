@@ -47,6 +47,10 @@ class AdoptListActivity : AppCompatActivity(), AdoptListener {
                 val launcherIntent = Intent(this, AdoptActivity::class.java)
                 getResult.launch(launcherIntent)
             }
+            R.id.item_map -> {
+                val launcherIntent = Intent(this, AdoptMapsActivity::class.java)
+                mapIntentLauncher.launch(launcherIntent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -61,6 +65,11 @@ class AdoptListActivity : AppCompatActivity(), AdoptListener {
                 notifyItemRangeChanged(0,app.adoptions.findAll().size)
             }
         }
+
+    private val mapIntentLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { }
 
     override fun onAdoptClick(adopt: AdoptModel, pos : Int) {
         val launcherIntent = Intent(this, AdoptActivity::class.java)

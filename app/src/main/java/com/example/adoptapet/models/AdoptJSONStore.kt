@@ -76,6 +76,11 @@ class AdoptJSONStore(private val context: Context) : AdoptStore {
     private fun logAll() {
         adoptions.forEach { Timber.i("$it")}
     }
+
+    override fun findById(id:Long) : AdoptModel? {
+        val foundPlacemark: AdoptModel? = adoptions.find { it.id == id }
+        return foundPlacemark
+    }
 }
 
 class UriParser : JsonDeserializer<Uri>,JsonSerializer<Uri> {

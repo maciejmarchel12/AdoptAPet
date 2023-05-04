@@ -6,4 +6,6 @@ interface AdoptStore {
     fun update(adopt: AdoptModel)
 
     fun delete(adopt: AdoptModel)
+
+    fun findById(id:Long) : AdoptModel?
 }
