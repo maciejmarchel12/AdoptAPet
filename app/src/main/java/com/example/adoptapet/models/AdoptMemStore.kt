@@ -47,4 +47,9 @@ class AdoptMemStore : AdoptStore {
     private fun logAll() {
         adoptions.forEach { i("$it") }
     }
+
+    override fun findById(id:Long) : AdoptModel? {
+        val foundPlacemark: AdoptModel? = adoptions.find { it.id == id }
+        return foundPlacemark
+    }
 }

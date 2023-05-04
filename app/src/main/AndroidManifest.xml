@@ -15,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdoptAPet"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.AdoptMapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_adopt_maps"
+            android:theme="@style/Theme.AdoptAPet.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -35,7 +40,7 @@
         </activity>
         <activity
             android:name=".activities.AdoptActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

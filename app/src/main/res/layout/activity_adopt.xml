@@ -31,143 +31,148 @@
                 app:titleTextColor="@color/colorPrimaryDark" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <ScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/appBarLayout"
-            android:fillViewport="true">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                tools:layout_editor_absoluteY="56dp">
 
-                <EditText
-                    android:id="@+id/adoptTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:autofillHints="hint"
-                    android:hint="@string/hint_adoptTitle"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    tools:ignore="VisualLintTextFieldSize" />
-
-                <EditText
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_adoptDescription"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    tools:ignore="VisualLintTextFieldSize"
-                    android:autofillHints="Write something short about the pet" />
-
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="394dp"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:autofillHints="yourhandle@emailprovider.com"
-                    android:ems="10"
-                    android:hint="@string/hint_email"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    tools:ignore="VisualLintTextFieldSize" />
-
-                <EditText
-                    android:id="@+id/petAge"
-                    android:layout_width="395dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:autofillHints="EX. 5"
-                    android:ems="10"
-                    android:hint="@string/hint_petAge"
-                    android:inputType="number"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:minHeight="48dp"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    tools:ignore="VisualLintTextFieldSize" />
-
-                <EditText
-                    android:id="@+id/availableDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_margin="8dp"
-                    android:hint="@string/hint_date"
-                    android:ems="10"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                    android:inputType="date"
-                    tools:ignore="VisualLintTextFieldSize"
-                    android:autofillHints="DD/MM/YYYY" />
-
-                <ImageView
-                    android:id="@+id/petImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="121dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-                <Button
-                    android:id="@+id/chooseImage"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addAdoptAPet"
-                    android:textColor="#212121"
-                    android:textSize="16sp"
-                    tools:ignore="VisualLintButtonSize" />
+                    <EditText
+                        android:id="@+id/adoptTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_margin="8dp"
+                        android:autofillHints="hint"
+                        android:hint="@string/hint_adoptTitle"
+                        android:inputType="text"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="VisualLintTextFieldSize" />
 
-                <Button
-                    android:id="@+id/adoptLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_location"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
+                    <EditText
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_margin="8dp"
+                        android:autofillHints="Write something short about the pet"
+                        android:hint="@string/hint_adoptDescription"
+                        android:inputType="text"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="VisualLintTextFieldSize" />
 
-            </LinearLayout>
-        </ScrollView>
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="394dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="8dp"
+                        android:autofillHints="yourhandle@emailprovider.com"
+                        android:ems="10"
+                        android:hint="@string/hint_email"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="VisualLintTextFieldSize" />
+
+                    <EditText
+                        android:id="@+id/petAge"
+                        android:layout_width="395dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:autofillHints="EX. 5"
+                        android:ems="10"
+                        android:hint="@string/hint_petAge"
+                        android:inputType="number"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:minHeight="48dp"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="VisualLintTextFieldSize" />
+
+                    <EditText
+                        android:id="@+id/availableDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_margin="8dp"
+                        android:autofillHints="DD/MM/YYYY"
+                        android:ems="10"
+                        android:hint="@string/hint_date"
+                        android:inputType="date"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="14sp"
+                        tools:ignore="VisualLintTextFieldSize" />
+
+                    <ImageView
+                        android:id="@+id/petImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="121dp"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <Button
+                        android:id="@+id/chooseImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:background="@color/colorAccent"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/button_addImage"
+                        android:textColor="#212121"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/adoptLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:background="@color/colorAccent"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/button_location"
+                        android:textColor="#212121"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btnAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:background="@color/colorAccent"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/button_addAdoptAPet"
+                        android:textColor="#212121"
+                        android:textSize="16sp"
+                        tools:ignore="VisualLintButtonSize" />
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 
