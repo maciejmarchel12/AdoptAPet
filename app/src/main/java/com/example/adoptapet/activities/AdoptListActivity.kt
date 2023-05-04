@@ -19,6 +19,7 @@ class AdoptListActivity : AppCompatActivity(), AdoptListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityAdoptListBinding
+    private var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,9 +62,10 @@ class AdoptListActivity : AppCompatActivity(), AdoptListener {
             }
         }
 
-    override fun onAdoptClick(adopt: AdoptModel) {
+    override fun onAdoptClick(adopt: AdoptModel, pos : Int) {
         val launcherIntent = Intent(this, AdoptActivity::class.java)
         launcherIntent.putExtra("pet_edit", adopt)
+        position = pos
         getClickResult.launch(launcherIntent)
     }
 
@@ -83,6 +85,9 @@ class AdoptListActivity : AppCompatActivity(), AdoptListener {
                 (binding.recyclerView.adapter)?.
                 notifyItemRangeChanged(0,app.adoptions.findAll().size)
             }
+            else //delete
+                if (it.resultCode == 99)
+                        (binding.recyclerView.adapter)?.notifyItemRemoved(position)
         }
 }
 

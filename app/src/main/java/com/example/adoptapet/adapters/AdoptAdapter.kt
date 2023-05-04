@@ -8,7 +8,7 @@ import com.example.adoptapet.models.AdoptModel
 import com.squareup.picasso.Picasso
 
 interface AdoptListener {
-    fun onAdoptClick(adopt: AdoptModel)
+    fun onAdoptClick(adopt: AdoptModel, position: Int)
 }
 
 class AdoptAdapter constructor(private var adoptions: List<AdoptModel>,
@@ -41,7 +41,7 @@ class AdoptAdapter constructor(private var adoptions: List<AdoptModel>,
             binding.age.text = adopt.petAge.toString()
             binding.date.text = adopt.availableDate
             Picasso.get().load(adopt.image).resize(200,200).into(binding.imageIcon)
-            binding.root.setOnClickListener { listener.onAdoptClick(adopt) }
+            binding.root.setOnClickListener { listener.onAdoptClick(adopt, adapterPosition) }
         }
     }
 }

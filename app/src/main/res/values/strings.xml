@@ -19,6 +19,7 @@
     <!-- Menu -->
     <string name="menu_addPet">Add</string>
     <string name="menu_cancelPet">Cancel</string>
+    <string name="menu_deletePet">Delete</string>
 
     <!-- Images -->
     <string name="button_addImage">Add Image</string>

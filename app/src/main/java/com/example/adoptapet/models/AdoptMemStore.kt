@@ -40,6 +40,10 @@ class AdoptMemStore : AdoptStore {
         }
     }
 
+    override fun delete(adopt: AdoptModel) {
+        adoptions.remove(adopt)
+    }
+
     private fun logAll() {
         adoptions.forEach { i("$it") }
     }
