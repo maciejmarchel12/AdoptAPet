@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AdoptAPet" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.AdoptAPetNight" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#566EF4</item>
         <item name="colorPrimaryVariant">#3F51B5</item>
