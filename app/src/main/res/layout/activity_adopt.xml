@@ -13,38 +13,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:fitsSystemWindows="true"
-            app:elevation="0dip"
-            app:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarAdd"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:forceDarkAllowed="true"
-                app:subtitleTextColor="@color/colorPrimary"
-                app:titleTextColor="@color/colorPrimaryDark" />
-        </com.google.android.material.appbar.AppBarLayout>
+                android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true"
-                tools:layout_editor_absoluteY="56dp">
-
-                <LinearLayout
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appBarLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="@color/colorAccent"
+                    android:fitsSystemWindows="true"
+                    app:elevation="0dip"
+                    app:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbarAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:forceDarkAllowed="true"
+                        app:subtitleTextColor="@color/colorPrimary"
+                        app:titleTextColor="@color/colorPrimaryDark" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/adoptTitle"
@@ -59,6 +58,12 @@
                         android:padding="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.042"
                         tools:ignore="VisualLintTextFieldSize" />
 
                     <EditText
@@ -74,11 +79,14 @@
                         android:padding="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/adoptTitle"
                         tools:ignore="VisualLintTextFieldSize" />
 
                     <EditText
                         android:id="@+id/email"
-                        android:layout_width="394dp"
+                        android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_margin="8dp"
                         android:autofillHints="yourhandle@emailprovider.com"
@@ -90,11 +98,14 @@
                         android:padding="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/description"
                         tools:ignore="VisualLintTextFieldSize" />
 
                     <EditText
                         android:id="@+id/petAge"
-                        android:layout_width="395dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:autofillHints="EX. 5"
@@ -107,13 +118,16 @@
                         android:padding="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email"
                         tools:ignore="VisualLintTextFieldSize" />
 
                     <EditText
                         android:id="@+id/availableDate"
-                        android:layout_width="match_parent"
+                        android:layout_width="412dp"
                         android:layout_height="48dp"
-                        android:layout_margin="8dp"
+                        android:layout_marginTop="8dp"
                         android:autofillHints="DD/MM/YYYY"
                         android:ems="10"
                         android:hint="@string/hint_date"
@@ -123,56 +137,70 @@
                         android:padding="8dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/petAge"
                         tools:ignore="VisualLintTextFieldSize" />
-
-                    <ImageView
-                        android:id="@+id/petImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="121dp"
-                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-                    <Button
-                        android:id="@+id/chooseImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:background="@color/colorAccent"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        android:text="@string/button_addImage"
-                        android:textColor="#212121"
-                        android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/adoptLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_width="174dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
                         android:background="@color/colorAccent"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         android:stateListAnimator="@null"
                         android:text="@string/button_location"
                         android:textColor="#212121"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/petImage" />
+
+                    <ImageView
+                        android:id="@+id/petImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="121dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/availableDate"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <Button
-                        android:id="@+id/btnAdd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:id="@+id/chooseImage"
+                        android:layout_width="174dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="24dp"
                         android:background="@color/colorAccent"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        android:stateListAnimator="@null"
-                        android:text="@string/button_addAdoptAPet"
+                        android:text="@string/button_addImage"
                         android:textColor="#212121"
                         android:textSize="16sp"
-                        tools:ignore="VisualLintButtonSize" />
+                        app:layout_constraintEnd_toStartOf="@+id/adoptLocation"
+                        app:layout_constraintHorizontal_bias="0.32"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/petImage" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </LinearLayout>
-            </ScrollView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/colorAccent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_addAdoptAPet"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    tools:ignore="VisualLintButtonSize" />
+
+            </LinearLayout>
+        </ScrollView>
 
     </RelativeLayout>
 
